@@ -57,3 +57,43 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+
+# PWEB-Projek (Tugas Pemrograman Web)
+
+Aplikasi ini dikembangkan menggunakan **Laravel** dan **MySQL**.
+
+## Panduan Instalasi (Clone & Setup)
+
+Ikuti langkah-langkah di Terminal:
+
+### 1. Clone Repositori
+
+```bash
+git clone [https://github.com/](https://github.com/)[USERNAME_ANDA]/PWEB-Projek.git
+cd PWEB-Projek
+```
+
+### 2. Instal Dependensi & Key
+Buat file .env dan generate key
+```bash
+copy .env.example .env
+composer install
+php artisan key:generate
+```
+
+### 3. Konfigurasi Database
+Pastikan Laragon berjalan dan buat database kosong bernama pweb_tugas di HeidiSQL
+Edit file .env untuk mengatur DB_CONNECTION=mysql dan DB_DATABASE=pweb_tugas
+(Edit file .env secara manual)
+```bash
+# Jalankan migrasi untuk membuat tabel
+php artisan migrate
+```
+
+### 4. Akses melalui browser
+[http://pweb-projek.test](http://pweb-projek.test)
+
+---
+**(c) 2025 Kelompok 13 || PWEB**
