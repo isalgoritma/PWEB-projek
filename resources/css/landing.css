@@ -1,0 +1,30 @@
+body {
+background: linear-gradient(135deg, #7b2ff7, #f107a3);
+height: 100vh;
+color: white;
+display: flex;
+align-items: center;
+}
+.landing-text {
+padding-left: 5rem;
+}
+.custom-btn {
+border: 2px solid white;
+padding: 10px 30px;
+border-radius: 30px;
+background: transparent;
+color: white;
+transition: .3s;
+}
+.custom-btn:hover {
+background: white;
+color: #7b2ff7;
+}
+.circle-img {
+width: 380px;
+animation: float 3s ease-in-out infinite;
+}
+@keyframes float {
+0%, 100% { transform: translateY(0); }
+50% { transform: translateY(-15px); }
+}

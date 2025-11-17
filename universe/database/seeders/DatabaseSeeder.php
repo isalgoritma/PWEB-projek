@@ -15,15 +15,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // Seed user default
+        // User::factory(10)->create();
+
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
-        ]);
-
-        // Panggil seeder LostItemSeeder
-        $this->call([
-            LostItemSeeder::class,
         ]);
     }
 }
