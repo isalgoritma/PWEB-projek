@@ -11,17 +11,26 @@ class AuthController extends Controller
 {
     public function loginProses(Request $request)
     {
-        $credentials = $request->only('email', 'password');
+        $credentials = $request->only('username', 'password');
 
         if(Auth::attempt($credentials)){
             return redirect('/dashboard');
         }
 
-        return back()->with('error', 'Email atau password salah');
+        return back()->with('error', 'Username atau password salah');
     }
 
     public function registerProses(Request $request)
     {
+        $request->validate([
+            'username'      => 'required',
+            'name'          => 'required',
+            'phone_number'  => 'required|numeric|digits_between:11,13',
+            'email'         => 'required|email',
+            'password'      => 'required|min:8'
+        ]);
+
+
         User::create([
             'username' => $request->username,
             'name'     => $request->name,

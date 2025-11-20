@@ -2,18 +2,35 @@
 
 @section('content')
 <div class="container-fluid landing vh-100 d-flex align-items-center">
-  <div class="row w-100">
+  <div class="row w-100 align-items-center">
+
+    <!-- KIRI -->
     <div class="col-md-6 landing-left d-flex flex-column justify-content-center">
-      <h1 class="display-4 fw-bold">Selamat Datang<br>di UniVerse</h1>
-      <p class="lead">Kamu kehilangan sesuatu? Kamu menemukan sesuatu? Konfirmasi di sini yaa!</p>
 
-      <!-- FIXED BUTTON -->
-      <a href="{{ route('login') }}" class="btn custom-btn mt-3">Get Started</a>
+      <h1 class="fw-bold" style="font-size: 7rem; line-height: 1.2;">
+          Selamat Datang<br>di UniVerse
+      </h1>
+
+      <p class="lead" style="font-size: 3rem;">
+          Kamu kehilangan sesuatu? Kamu menemukan sesuatu? Konfirmasi di sini yaa!
+      </p>
+
+      <a href="{{ route('login') }}" class="btn custom-btn mt-6">Get Started</a>
     </div>
 
-    <div class="col-md-6 text-center">
-      <img src="{{ asset('images/illustration.png') }}" alt="illustration" class="circle-img img-fluid">
+    <!-- KANAN : GAMBAR -->
+    <div class="col-md-6 text-center d-flex justify-content-center">
+
+        <img
+            src="{{ asset('images/landing-photo.png') }}"
+            alt="Landing Image"
+            class="img-fluid"
+            style="max-width: 1000px; width: 100%; object-fit: contain;"
+            onerror="this.src='{{ asset('images/fallback.png') }}';"
+        >
+
     </div>
+
   </div>
 </div>
 @endsection

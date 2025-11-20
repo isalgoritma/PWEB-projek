@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LostItemController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -22,3 +24,28 @@ Route::resource('lost', LostItemController::class);
 Route::post('/login-proses', [AuthController::class, 'loginProses'])->name('login.proses');
 Route::post('/register-proses', [AuthController::class, 'registerProses'])->name('register.proses');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::middleware('auth')->get('/dashboard', function () {
+
+    $lostCategories = [
+        ['category' => 'Elektronik', 'count' => 12, 'image' => asset('images/lost/elektronik.svg')],
+        ['category' => 'Pakaian', 'count' => 8, 'image' => asset('images/lost/pakaian.svg')],
+        ['category' => 'Aksesoris', 'count' => 15, 'image' => asset('images/lost/aksesoris.svg')],
+        ['category' => 'Dokumen', 'count' => 5, 'image' => asset('images/lost/dokumen.svg')],
+        ['category' => 'Tas & Dompet', 'count' => 9, 'image' => asset('images/lost/tas.svg')],
+    ];
+
+    $foundCategories = [
+        ['category' => 'Elektronik', 'count' => 18, 'image' => asset('images/found/elektronik.svg')],
+        ['category' => 'Pakaian', 'count' => 10, 'image' => asset('images/found/pakaian.svg')],
+        ['category' => 'Aksesoris', 'count' => 22, 'image' => asset('images/found/aksesoris.svg')],
+        ['category' => 'Dokumen', 'count' => 7, 'image' => asset('images/found/dokumen.svg')],
+        ['category' => 'Tas & Dompet', 'count' => 14, 'image' => asset('images/found/tas.svg')],
+    ];
+
+    return view('dashboard', compact('lostCategories', 'foundCategories'));
+})->name('dashboard');
+
+
+
+
+

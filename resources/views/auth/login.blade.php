@@ -26,7 +26,7 @@
 
             <!-- Username -->
             <label>Username</label>
-            <input type="email" name="email" placeholder="Masukkan username Anda" required class="mb-3">
+            <input type="text" name="username" placeholder="Masukkan username Anda" required class="mb-3">
 
             <!-- Password -->
             <label>Password</label>

@@ -6,24 +6,35 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('username')->unique()->after('id');
-            $table->string('phone_number')->nullable()->after('name');
+
+            // Tambahkan kolom username jika BELUM ada
+            if (!Schema::hasColumn('users', 'username')) {
+                $table->string('username')->unique()->after('id');
+            }
+
+            // Tambahkan kolom phone_number jika BELUM ada
+            if (!Schema::hasColumn('users', 'phone_number')) {
+                $table->string('phone_number')->nullable()->after('name');
+            }
+
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn(['username', 'phone_number']);
+
+            if (Schema::hasColumn('users', 'username')) {
+                $table->dropColumn('username');
+            }
+
+            if (Schema::hasColumn('users', 'phone_number')) {
+                $table->dropColumn('phone_number');
+            }
+
         });
     }
 };
