@@ -10,8 +10,6 @@ class WelcomeController extends Controller
     public function index()
     {
         $user = Auth::user();
-
-        // --- DATA KATALOG LENGKAP (5 kategori) ---
         $categories = [
             [
                 'category' => 'Elektronik',

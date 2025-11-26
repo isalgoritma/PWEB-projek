@@ -10,12 +10,10 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
 
-            // Tambahkan kolom username jika BELUM ada
             if (!Schema::hasColumn('users', 'username')) {
                 $table->string('username')->unique()->after('id');
             }
 
-            // Tambahkan kolom phone_number jika BELUM ada
             if (!Schema::hasColumn('users', 'phone_number')) {
                 $table->string('phone_number')->nullable()->after('name');
             }

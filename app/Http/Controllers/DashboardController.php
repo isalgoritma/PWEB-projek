@@ -8,7 +8,7 @@ class DashboardController extends Controller
 {
     //
     /**
-     * Menampilkan halaman dashboard internal pengguna.
+     * Dashboard
      *
      * @return \Illuminate\View\View
      */
@@ -25,7 +25,6 @@ class DashboardController extends Controller
                 'count' => 8,
                 'image' => 'data:image/svg+xml,<svg ...>'
             ],
-            // tambahkan sesuai datamu
         ];
 
         $foundCategories = [
@@ -34,7 +33,6 @@ class DashboardController extends Controller
                 'count' => 18,
                 'image' => 'data:image/svg+xml,<svg ...>'
             ],
-            // tambahkan sesuai datamu
         ];
 
         return view('dashboard', [

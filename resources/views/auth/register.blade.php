@@ -1,14 +1,15 @@
-@extends('layouts.app')
+@extends('layouts.auth')
 
 @push('styles')
 <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
+<link rel="stylesheet" href="{{ asset('css/register.css') }}">
 @endpush
 
 @section('content')
 
 <div class="login-bg">
 
-    <div class="login-card">
+    <div class="login-card register-card">
 
         <!-- Icon -->
         <div class="login-icon">
@@ -45,7 +46,7 @@
             <input type="email" name="email" placeholder="Masukkan email Anda" required class="mb-4">
 
             <!-- Button -->
-            <button type="submit" class="btn-login">Daftar</button>
+            <button type="submit" class="btn-register">Daftar</button>
 
             <!-- Link to Login -->
             <div class="login-links mt-3">

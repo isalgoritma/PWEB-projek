@@ -1,7 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.auth')
 
 @push('styles')
 <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
+<link rel="stylesheet" href="{{ asset('css/login.css') }}">
 @endpush
 
 @section('content')
@@ -10,42 +11,36 @@
 
     <div class="login-card">
 
-        <!-- Icon -->
-        <div class="login-icon">
-            <i class="bi bi-person-fill"></i>
+        {{-- <div class="login-icon-ellipse">
+        </div> --}}
+
+        <div class="profile-icon">
+            <img src="{{ asset('images/ikon profil.png') }}" class="profile-svg">
         </div>
 
-        <!-- Title -->
-        <div class="login-title">
-            Sistem Manajemen Informasi Laporan Barang Hilang
-        </div>
+        <h1 class="login-title" style="font-family: georgia, serif;">UniVerse</h1>
 
-        <!-- Form Login -->
         <form action="{{ route('login.proses') }}" method="POST">
             @csrf
 
-            <!-- Username -->
             <label>Username</label>
-            <input type="text" name="username" placeholder="Masukkan username Anda" required class="mb-3">
+            <input type="text" name="username" placeholder="Masukkan username Anda" required>
 
-            <!-- Password -->
             <label>Password</label>
-            <input type="password" name="password" placeholder="Masukkan password Anda" required class="mb-2">
+            <input type="password" name="password" placeholder="Masukkan password Anda" required>
 
-            <div class="text-end mb-2">
-                <a href="#" style="font-size: 13px;">Lupa Password?</a>
-            </div>
+            <a href="#" class="forgot">Lupa Password?</a>
 
             <button type="submit" class="btn-login">Login</button>
 
-            <div class="login-links mt-3">
+            <div class="login-links">
                 Belum punya akun?
                 <a href="{{ route('register') }}">Registrasi</a>
             </div>
-
         </form>
 
     </div>
 </div>
+
 
 @endsection

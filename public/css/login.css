@@ -1,0 +1,29 @@
+/* Card lebih kecil untuk login */
+.login-card {
+    width: 290px;
+}
+
+/* Ikon login (svg atau png kecil) */
+.profile-svg {
+    width: 50px;
+    height: auto;
+    display: block;
+    margin: 0 auto 15px auto;
+}
+
+/* Title login */
+.login-title {
+    font-size: 24px;
+}
+
+/* Lupa password */
+.forgot {
+    display: block;
+    text-align: right;
+    margin-top: -10px;
+    margin-bottom: 30px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    color: #735353;
+    text-decoration: none;
+}

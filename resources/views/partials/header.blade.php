@@ -13,7 +13,7 @@
             <a href="#barang-hilang" class="font-medium text-white hover:text-[#f4d7b5]">Barang Hilang</a>
          </nav>
 
-         {{-- User Info --}}
+
          <div class="flex items-center space-x-4">
 
             <div class="flex items-center space-x-3 px-4 py-2 rounded-lg" style="background:#b56f2d;">
