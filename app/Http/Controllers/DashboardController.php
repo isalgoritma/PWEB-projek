@@ -1,43 +1,60 @@
-<?php
-
-namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
-
-class DashboardController extends Controller
+public function index()
 {
-    //
-    /**
-     * Dashboard
-     *
-     * @return \Illuminate\View\View
-     */
-        public function index()
-    {
-        $lostCategories = [
-            [
-                'category' => 'Elektronik',
-                'count' => 12,
-                'image' => 'data:image/svg+xml,<svg ...>'
-            ],
-            [
-                'category' => 'Pakaian',
-                'count' => 8,
-                'image' => 'data:image/svg+xml,<svg ...>'
-            ],
-        ];
+    $lostCategories = [
+        [
+            'category' => 'Elektronik',
+            'count' => 12,
+            'slug' => 'elektronik',
+        ],
+        [
+            'category' => 'Pakaian',
+            'count' => 8,
+            'slug' => 'pakaian',
+        ],
+        [
+            'category' => 'Aksesoris',
+            'count' => 15,
+            'slug' => 'aksesoris',
+        ],
+        [
+            'category' => 'Dokumen',
+            'count' => 5,
+            'slug' => 'dokumen',
+        ],
+        [
+            'category' => 'Tas & Dompet',
+            'count' => 9,
+            'slug' => 'tas-dompet',
+        ],
+    ];
 
-        $foundCategories = [
-            [
-                'category' => 'Elektronik',
-                'count' => 18,
-                'image' => 'data:image/svg+xml,<svg ...>'
-            ],
-        ];
+    $foundCategories = [
+        [
+            'category' => 'Elektronik',
+            'count' => 18,
+            'slug' => 'elektronik',
+        ],
+        [
+            'category' => 'Pakaian',
+            'count' => 10,
+            'slug' => 'pakaian',
+        ],
+        [
+            'category' => 'Aksesoris',
+            'count' => 22,
+            'slug' => 'aksesoris',
+        ],
+        [
+            'category' => 'Dokumen',
+            'count' => 7,
+            'slug' => 'dokumen',
+        ],
+        [
+            'category' => 'Tas & Dompet',
+            'count' => 14,
+            'slug' => 'tas-dompet',
+        ],
+    ];
 
-        return view('dashboard', [
-            'lostCategories' => $lostCategories,
-            'foundCategories' => $foundCategories
-        ]);
-    }
+    return view('dashboard', compact('lostCategories', 'foundCategories'));
 }

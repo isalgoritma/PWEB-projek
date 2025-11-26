@@ -1,0 +1,15 @@
+:root {
+    --brown-dark: #735353;
+    --brown-medium: #5a3e1b;
+    --brown-light: #c08a63;
+
+    --cream-main: #f7efe3;
+    --cream-soft: #f8e9d7;
+    --cream-box: #f2e6d9;
+
+    --text-brown: #5c4537;
+
+    --white: #ffffff;
+    --shadow: rgba(0,0,0,0.1);
+}
+

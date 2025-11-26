@@ -1,41 +1,55 @@
-<header class="header-fixed shadow-lg" style="background:#5a3e1b; color:white;">
-   <div class="container mx-auto px-6 py-4">
-      <div class="flex items-center justify-between">
+<header class="shadow" style="background:#f7efe3;">
+    <div class="container mx-auto px-6 py-4 flex items-center justify-between">
 
-         {{-- Logo --}}
-         <div class="flex items-center space-x-2">
-             <span class="text-2xl font-bold text-white">Universe</span>
-         </div>
+        <div class="text-2xl font-bold" style="font-family: 'Georgia', serif; color:#735353;">
+            UniVerse
+        </div>
 
-         {{-- Menu --}}
-         <nav class="hidden md:flex items-center space-x-8">
-            <a href="#utama" class="font-medium text-white hover:text-[#f4d7b5]">Utama</a>
-            <a href="#barang-hilang" class="font-medium text-white hover:text-[#f4d7b5]">Barang Hilang</a>
-         </nav>
+        <nav class="hidden md:flex items-center space-x-8">
+            <a href="/dashboard"
+                class="font-medium text-[#735353] pb-1 border-b-2
+                {{ request()->is('dashboard') ? 'border-[#735353]' : 'border-transparent hover:border-[#735353]' }}">
+                Utama
+            </a>
 
+            <a href="#barang-hilang"
+                class="font-medium text-[#735353] pb-1 border-b-2
+                hover:border-[#735353]">
+                Barang Hilang & Ditemukan
+            </a>
+        </nav>
 
-         <div class="flex items-center space-x-4">
+        <div class="flex items-center gap-3">
 
-            <div class="flex items-center space-x-3 px-4 py-2 rounded-lg" style="background:#b56f2d;">
-               <div class="text-left">
-                    <div class="text-sm font-semibold text-white">{{ Auth::user()->username }}</div>
-                    <div class="text-xs flex items-center text-white">
-                        <span>{{ Auth::user()->role ?? 'User' }}</span>
-                        <span class="status-online"></span>
+            <div class="flex items-center space-x-2 px-4 py-2 bg-white rounded-full shadow-sm">
+
+                {{-- Ikon Akun --}}
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    class="w-6 h-6 text-[#735353]"
+                    fill="currentColor"
+                    viewBox="0 0 16 16">
+                    <path d="M8 8a3 3 0 1 0-3-3 3 3 0 0 0 3 3Zm0 1c-2.67 0-8 1.34-8 4v1h16v-1c0-2.66-5.33-4-8-4Z"/>
+                </svg>
+
+                <div>
+                    <div class="text-sm font-semibold text-[#735353]">
+                        {{ Auth::user()->username }}
                     </div>
-               </div>
+                    <div class="text-xs text-[#735353]">Aktif</div>
+                </div>
+
             </div>
+
 
             <form action="{{ route('logout') }}" method="POST">
                 @csrf
-                <button class="px-4 py-2 rounded-lg font-medium transition flex items-center space-x-2"
-                        style="background:#8c501d; color:white;">
-                    <span>Logout</span>
+                <button class="px-4 py-2 rounded-lg font-medium text-white"
+                        style="background:#735353;">
+                    Logout
                 </button>
             </form>
 
-         </div>
+        </div>
 
-      </div>
-   </div>
+    </div>
 </header>
