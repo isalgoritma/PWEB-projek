@@ -1,60 +1,19 @@
-public function index()
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class DashboardController extends Controller
 {
-    $lostCategories = [
-        [
-            'category' => 'Elektronik',
-            'count' => 12,
-            'slug' => 'elektronik',
-        ],
-        [
-            'category' => 'Pakaian',
-            'count' => 8,
-            'slug' => 'pakaian',
-        ],
-        [
-            'category' => 'Aksesoris',
-            'count' => 15,
-            'slug' => 'aksesoris',
-        ],
-        [
-            'category' => 'Dokumen',
-            'count' => 5,
-            'slug' => 'dokumen',
-        ],
-        [
-            'category' => 'Tas & Dompet',
-            'count' => 9,
-            'slug' => 'tas-dompet',
-        ],
-    ];
+    public function index()
+    {
+        $lostCategories = [
+            ['category' => 'Dompet', 'slug' => 'dompet'],
+            ['category' => 'Kunci', 'slug' => 'kunci'],
+            ['category' => 'HP', 'slug' => 'hp'],
+        ];
 
-    $foundCategories = [
-        [
-            'category' => 'Elektronik',
-            'count' => 18,
-            'slug' => 'elektronik',
-        ],
-        [
-            'category' => 'Pakaian',
-            'count' => 10,
-            'slug' => 'pakaian',
-        ],
-        [
-            'category' => 'Aksesoris',
-            'count' => 22,
-            'slug' => 'aksesoris',
-        ],
-        [
-            'category' => 'Dokumen',
-            'count' => 7,
-            'slug' => 'dokumen',
-        ],
-        [
-            'category' => 'Tas & Dompet',
-            'count' => 14,
-            'slug' => 'tas-dompet',
-        ],
-    ];
-
-    return view('dashboard', compact('lostCategories', 'foundCategories'));
+        return view('dashboard', compact('lostCategories'));
+    }
 }

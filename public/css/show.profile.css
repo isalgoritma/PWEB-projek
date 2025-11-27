@@ -1,0 +1,69 @@
+:root {
+    --brown: #735353;
+    --cream: #f7efe3;
+    --cream-soft: #f4ebdf;
+    --white: #ffffff;
+}
+
+body {
+    background-color: var(--white);
+    font-family: 'Poppins', sans-serif;
+}
+
+.profile-page {
+    margin-top: 80px;
+    text-align: center;
+}
+
+/* FOTO PROFIL */
+.photo-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.photo {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background-color: var(--cream-soft);
+    padding: 15px;
+}
+
+/* BOX INFORMASI */
+.info-box {
+    width: 450px;
+    background-color: var(--cream);
+    padding: 18px 20px;
+    margin: 15px auto;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid var(--cream-soft);
+}
+
+.label {
+    font-size: 15px;
+    color: var(--brown);
+    font-weight: 600;
+    margin: 0;
+    text-align: left;
+}
+
+.value {
+    font-size: 14px;
+    margin: 0;
+    color: #444;
+}
+
+.edit-icon {
+    font-size: 25px;
+    color: var(--brown);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.edit-icon:hover {
+    color: #543838;
+}

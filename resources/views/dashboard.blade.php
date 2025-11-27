@@ -194,7 +194,7 @@ document.addEventListener("DOMContentLoaded", function () {
             universeLine.classList.add("show-universe");
 
             // Tampilkan subtitle sedikit terlambat agar lembut
-            setTimeout(() => {
+            setTimeout(() => { 
                 subtitle.classList.add("show-subtitle");
             }, 400);
         }

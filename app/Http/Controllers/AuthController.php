@@ -2,52 +2,68 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
+use App\Models\User;
 
 class AuthController extends Controller
 {
     public function loginProses(Request $request)
     {
-        $credentials = $request->only('username', 'password');
+        $request->validate([
+            'username' => 'required',
+            'password' => 'required'
+        ]);
 
-        if(Auth::attempt($credentials)){
-            return redirect('/dashboard');
+        $credentials = [
+            'username' => $request->username,
+            'password' => $request->password
+        ];
+
+        if (Auth::attempt($credentials)) {
+            $user = Auth::user();
+
+            // Jika admin → masuk dashboard admin
+            if ($user->role === 'admin') {
+                return redirect()->route('admin.dashboard');
+            }
+
+            // Jika user biasa → masuk dashboard user
+            return redirect()->route('dashboard');
         }
 
-        return back()->with('error', 'Username atau password salah');
+        return back()->with('error', 'Username atau password salah!');
     }
+
 
     public function registerProses(Request $request)
     {
         $request->validate([
-            'username'      => 'required',
-            'name'          => 'required',
-            'phone_number'  => 'required|numeric|digits_between:11,13',
-            'email'         => 'required|email',
-            'password'      => 'required|min:8'
+            'name'     => 'required',
+            'email'    => 'required|email|unique:users',
+            'password' => 'required|min:5'
         ]);
-
 
         User::create([
-            'username' => $request->username,
             'name'     => $request->name,
-            'phone_number' => $request->phone_number,
             'email'    => $request->email,
-            'password' => Hash::make($request->password)
+            'password' => bcrypt($request->password),
+            'role'     => 'user'
         ]);
 
-        return redirect('/login')->with('success','Akun berhasil dibuat');
+        return redirect()->route('login')->with('success', 'Register berhasil, silakan login.');
     }
+
+    public function profile()
+    {
+        $user = auth()->user(); // ambil data user login saat ini
+        return view('profile', compact('user'));
+    }
+
 
     public function logout()
     {
         Auth::logout();
-        return redirect('/');
+        return redirect()->route('login');
     }
-
-
-
 }
